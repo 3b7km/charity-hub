@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "primary-container": "#1a6b4a",
+                        "on-primary-fixed": "#002113",
+                        "on-tertiary-fixed": "#2a1700",
+                        "primary-fixed-dim": "#8ad6ae",
+                        "surface-container": "#e9edff",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-tint": "#1a6b4a",
+                        "on-secondary-fixed-variant": "#3d4944",
+                        "background": "#f9f9ff",
+                        "secondary-fixed-dim": "#bdc9c3",
+                        "secondary-container": "#d6e3dc",
+                        "outline-variant": "#bfc9c0",
+                        "on-secondary-fixed": "#131e1a",
+                        "secondary-fixed": "#d9e5df",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#653e00",
+                        "outline": "#6f7a72",
+                        "on-primary-container": "#9be9bf",
+                        "inverse-primary": "#8ad6ae",
+                        "on-primary-fixed-variant": "#005235",
+                        "tertiary-container": "#855300",
+                        "primary-fixed": "#a5f3c9",
+                        "primary": "#005235",
+                        "surface-container-highest": "#dce2f7",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#3f4943",
+                        "surface-container-low": "#f1f3ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#dce2f7",
+                        "on-error-container": "#93000a",
+                        "on-background": "#141b2b",
+                        "inverse-surface": "#293040",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-secondary-container": "#596560",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "surface": "#f9f9ff",
+                        "on-surface": "#141b2b",
+                        "on-tertiary-container": "#ffd099",
+                        "secondary": "#55615c",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e1e8fd",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d3daef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "2xl": "3rem",
+                        "sm": "0.5rem",
+                        "md": "1rem",
+                        "xl": "2rem",
+                        "xs": "0.25rem",
+                        "base": "4px",
+                        "container-max": "1280px",
+                        "lg": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "body-base": ["Public Sans"],
+                        "label-xs": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "monetary": ["Public Sans"],
+                        "h4": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "label-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-base": ["1rem", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-xs": ["0.75rem", {"lineHeight": "1", "fontWeight": "600"}],
+                        "h3": ["1.875rem", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "monetary": ["1.25rem", {"fontWeight": "700"}],
+                        "h4": ["1.5rem", {"lineHeight": "1.4", "fontWeight": "700"}],
+                        "h2": ["2.25rem", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "h1": ["3rem", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["0.875rem", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["0.875rem", {"lineHeight": "1", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto w-full">
+<div class="text-2xl font-bold tracking-tighter text-[#1a6b4a]">CharityHub</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-['Public_Sans'] text-sm font-bold tracking-tight text-[#1a6b4a] border-b-2 border-[#1a6b4a] pb-1" href="#">Campaigns</a>
+<a class="font-['Public_Sans'] text-sm font-medium tracking-tight text-gray-600 hover:text-[#1a6b4a] transition-colors" href="#">Impact</a>
+<a class="font-['Public_Sans'] text-sm font-medium tracking-tight text-gray-600 hover:text-[#1a6b4a] transition-colors" href="#">About Us</a>
+<a class="font-['Public_Sans'] text-sm font-medium tracking-tight text-gray-600 hover:text-[#1a6b4a] transition-colors" href="#">Transparency</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="font-['Public_Sans'] text-sm font-medium px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg transition-all">Login</button>
+<button class="font-['Public_Sans'] text-sm font-bold px-6 py-2 bg-[#f59e0b] text-white rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95">Donate</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Header Section -->
+<section class="bg-white border-b border-gray-100 py-12">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-h1 text-h1 text-on-background mb-2">Our Campaigns</h1>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-2xl">Discover and support projects that create lasting change. Every donation is tracked with radical transparency to ensure your impact is real.</p>
+</div>
+<div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full shadow-sm">
+<span class="font-label-md text-label-md">24 Active Campaigns</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Filter Bar -->
+<div class="sticky top-[73px] z-40 bg-white/90 backdrop-blur-md border-b border-gray-200">
+<div class="max-w-7xl mx-auto px-6 py-4">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Category Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-primary-container text-white font-label-md text-label-md shadow-sm">All</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md border border-outline-variant">Education</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md border border-outline-variant">Health</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md border border-outline-variant">Environment</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md border border-outline-variant">Emergency</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md border border-outline-variant">Food</button>
+</div>
+<!-- Search and Sort -->
+<div class="flex flex-col sm:flex-row items-center gap-3">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all font-body-sm text-body-sm bg-white" placeholder="Search campaigns..." type="text"/>
+</div>
+<div class="relative w-full sm:w-48">
+<select class="w-full pl-4 pr-10 py-2 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none appearance-none transition-all font-body-sm text-body-sm bg-white">
+<option>Sort: Most Recent</option>
+<option>Sort: Ending Soon</option>
+<option>Sort: Impact Rank</option>
+<option>Sort: Goal Progress</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Campaign Grid -->
+<section class="max-w-7xl mx-auto px-6 py-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1: Ending Soon -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col group transition-transform hover:-translate-y-1">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="A heartwarming close-up of a diverse group of children smiling in a brightly lit, modern classroom setting. The lighting is warm and natural, suggesting a hopeful and supportive atmosphere. The image is captured in a professional documentary style with soft focus on the background to emphasize the subjects' expressions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwpZ3QJ_E9mY8UUVYz7613owJ7gs9ZyW-hfroUvh2JoBNKCLQ2e1g7m6dWSiyOF1W-PW0eDr_jykjlIOWxsVaLMG0lJjkcyPeUkp617xN-iYoaRFrutW0TdEUeoReuKx5AT-vXtPGJcbRw01cUAQUqH0fr6-ykK4vXxHL04u6twDPWUlpkPcegwDJc4ynvLm9sZlt6nscQUTstiaVquokb4cw6mns_7_RK9HNgaNEZj4Oistaw6o4EJvnGV9TBs43yBaU7ZMDzIC1d"/>
+<div class="absolute top-4 left-4">
+<span class="bg-[#f59e0b] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Ending Soon</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-h4 text-h4 text-on-background mb-2">Sustainable Schools Initiative</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-6">Providing eco-friendly learning environments and digital tools for underprivileged communities across East Africa.</p>
+<div class="mt-auto space-y-4">
+<!-- Progress -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-monetary text-monetary text-primary">£6,800 raised</span>
+<span class="font-label-xs text-label-xs text-outline">68% of £10,000</span>
+</div>
+<div class="w-full h-2.5 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 68%"></div>
+</div>
+</div>
+<!-- Stats -->
+<div class="flex justify-between border-t border-gray-100 pt-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-background">12</span>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Days Left</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-background">143</span>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Donors</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-2 gap-3 pt-2">
+<button class="bg-[#f59e0b] text-white font-label-md text-label-md py-3 rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95">Donate Now</button>
+<button class="border-2 border-[#1a6b4a] text-[#1a6b4a] font-label-md text-label-md py-3 rounded-lg hover:bg-emerald-50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">share</span> Share
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Goal Reached -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col group transition-transform hover:-translate-y-1">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="A clean, professional medical clinic environment where a healthcare professional is interacting kindly with a patient. The color palette is composed of soft blues, whites, and natural green plants, creating a serene and hygienic atmosphere. High-key lighting highlights the sterile yet compassionate nature of the setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz2EJ7J4ESB9h7quASaIjiE4J_SNRN0JnNei2WB3Arc5OkCvoWRwhYY6qaz2xoTdeePuYUU9bASHmhhu8wFba0d-mCNudcwZgTbND3IijHBwhhHpVAwfbXopQg_F5Nl-Z6HAAxaaK0z0DF5827OipvUkmTMhdeDkCtjvwcvly2H_m1ntiz8nvxb8DZ-rn92149hZ7njZtPoCkLb7gYBcv7tXR1x4eBTaRtjsRLxORYoq60mmEILJurw3gH4bQp46J3GlWCMYwCxZwW"/>
+<div class="absolute top-4 left-4">
+<span class="bg-[#1a6b4a] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Goal Reached</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-h4 text-h4 text-on-background mb-2">Mobile Health Clinic 2024</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-6">Expanding our fleet of mobile medical units to reach isolated rural villages with primary healthcare and vaccinations.</p>
+<div class="mt-auto space-y-4">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-monetary text-monetary text-primary">£25,400 raised</span>
+<span class="font-label-xs text-label-xs text-outline">101% of £25,000</span>
+</div>
+<div class="w-full h-2.5 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div class="flex justify-between border-t border-gray-100 pt-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-background">Funded</span>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Status</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-background">892</span>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Donors</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<button class="bg-[#f59e0b] text-white font-label-md text-label-md py-3 rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95">Donate More</button>
+<button class="border-2 border-[#1a6b4a] text-[#1a6b4a] font-label-md text-label-md py-3 rounded-lg hover:bg-emerald-50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">share</span> Share
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: New -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col group transition-transform hover:-translate-y-1">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="A vast, verdant landscape featuring a community-led reforestation project. Local workers are shown planting young saplings under a clear, bright sky. The aesthetic is organic and vibrant, emphasizing deep greens and natural earth tones. The lighting is bright and optimistic, capturing the essence of ecological restoration and growth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHtSzNpg4Af8E9R1ia7nrwwIDYrfRnp2cNZT6kdu1Kb2dBrvZKZBrMrJM6gbkjzjWe7WKhOBP2XfuiY4TdCjSu5qnLTo3hsY-YG3rb4OJgk8GnZUOYvH-VwnIKopRASU1dVp3PqbbqZaZzYhD6X4hEBMfWDwWYwH00VmtOGdlQ_IoldI2BQQF5l92ZZGCs3dFU4All3DMi2JLQnHISv-ccZ61DcGAepeOB8aNPHw-TU-pq0eXpyeRzUPrnUH8_ivZkqjKfjBH_K4xD"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-h4 text-h4 text-on-background mb-2">Reforest the Amazon Edge</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-6">Protecting biodiversity by planting 50,000 native trees and establishing community-led conservation zones.</p>
+<div class="mt-auto space-y-4">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-monetary text-monetary text-primary">£4,200 raised</span>
+<span class="font-label-xs text-label-xs text-outline">14% of £30,000</span>
+</div>
+<div class="w-full h-2.5 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 14%"></div>
+</div>
+</div>
+<div class="flex justify-between border-t border-gray-100 pt-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-background">45</span>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Days Left</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-background">56</span>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Donors</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<button class="bg-[#f59e0b] text-white font-label-md text-label-md py-3 rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95">Donate Now</button>
+<button class="border-2 border-[#1a6b4a] text-[#1a6b4a] font-label-md text-label-md py-3 rounded-lg hover:bg-emerald-50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">share</span> Share
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Repeat Card (Simplified) -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col group transition-transform hover:-translate-y-1">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="A focused image of hands sorting fresh, colorful produce into wooden crates in a bright, modern community kitchen. The visual style is crisp and detailed, with a focus on textures of vegetables like vibrant bell peppers and dark leafy greens. High-key lighting gives the scene a fresh, clean, and energetic feeling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr4PeoSKbKlxkJVmVTBNdEEt-Flc7NVWloUdhPei11gyEtqoKFX2EqeLNwfNBr9IDBo8pIZ_2TddWFuW7EQLxEl-E1wv-2G9oqD6zZ1BEg6xHNcc89h1_Qca7VlYX484_D77tS-e-_KAZljcdw8bpeNpy6agDGno3VFL0Mx0AMBiwGrrZsbSAMY3VIng5Hq17dmaW4ndb4Eu8_Pb1qmxcxmAIlq01-O1PvCQp2jwYG8ccTQbwi1rpNyHIcz3Q7-lgGaq_oUVMZA73n"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-h4 text-h4 text-on-background mb-2">Zero-Waste Food Bank</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-6">Revolutionizing local food distribution by rescuing surplus produce from retailers and delivering it to families in need.</p>
+<div class="mt-auto space-y-4">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-monetary text-monetary text-primary">£12,350 raised</span>
+<span class="font-label-xs text-label-xs text-outline">82% of £15,000</span>
+</div>
+<div class="w-full h-2.5 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2 border-t border-gray-100 pt-4">
+<button class="bg-[#f59e0b] text-white font-label-md text-label-md py-3 rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95">Donate Now</button>
+<button class="border-2 border-[#1a6b4a] text-[#1a6b4a] font-label-md text-label-md py-3 rounded-lg hover:bg-emerald-50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">share</span> Share
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Repeat Card (Simplified) -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col group transition-transform hover:-translate-y-1">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="A modern medical laboratory setting where a scientist is meticulously analyzing samples under high-tech equipment. The lighting is cool and professional, with highlights on glass surfaces and sterile stainless steel. The color palette is dominated by professional whites and subtle teals, conveying high-end research and scientific precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC97pNf-q4t_P0oe29yC-4awEvi8on3z0VKFr16bIDKASc73L-0dfnutGCMJi5WvEk4ZJTCU15Q9udKoU8A5divkaJsknbavyt7f0SdNNnHVFuG6T2Vxcs7CGz9kK6VvTaciPhocZRbvtmae6klfjR0O5s2N9bLCXd-FU0-Dsk0lP67QDXKPS-LgMR0mDnvMct43DeaNuwF32B22qa9vVSaQQsHdfa_xd5_Dn21r9Ubhh6tDkOA6dmLheDV1dBrhbdD3-AxzHe5j_Qr"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-h4 text-h4 text-on-background mb-2">Rare Disease Research Fund</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-6">Supporting cutting-edge genomic research to develop treatments for children with ultra-rare genetic conditions.</p>
+<div class="mt-auto space-y-4">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-monetary text-monetary text-primary">£45,000 raised</span>
+<span class="font-label-xs text-label-xs text-outline">45% of £100k</span>
+</div>
+<div class="w-full h-2.5 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2 border-t border-gray-100 pt-4">
+<button class="bg-[#f59e0b] text-white font-label-md text-label-md py-3 rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95">Donate Now</button>
+<button class="border-2 border-[#1a6b4a] text-[#1a6b4a] font-label-md text-label-md py-3 rounded-lg hover:bg-emerald-50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">share</span> Share
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Repeat Card (Simplified) -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col group transition-transform hover:-translate-y-1">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="A vibrant community center space filled with modern wooden furniture and large windows letting in natural light. People from diverse backgrounds are engaged in conversation and collaborative work. The visual style is warm, inclusive, and modern, using a palette of soft neutrals and bright wood tones to create a welcoming and creative environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA8wx3VjpPIGQpBzmF92m2e90wPmBu6FQKn2LBx_BptLNO-SBxsRYnaz5Rqcd8cs41t3qI05B-cXgkSNNV5ApsHObO2Kq8Y_GUOOoK06ill5SEWnye4PDax7rJvxjcIJeNgJHHl5Q6SQ4rWl4mSXeWkAgfChnmf6FSGuoM3w0Gi4s41WsStRWD8KyJT8YsE4wpmJKvaP_KvfjU_HAjr6ncqLuQYNc3AmuhT98Q6Z-UlhqJjDYdoM14TXeKgcYycn3cY3XxiCgDdkcf"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-h4 text-h4 text-on-background mb-2">Youth Innovation Hub</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-6">Creating a state-of-the-art vocational center for inner-city youth to learn coding, design, and digital entrepreneurship.</p>
+<div class="mt-auto space-y-4">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-monetary text-monetary text-primary">£8,200 raised</span>
+<span class="font-label-xs text-label-xs text-outline">32% of £25,000</span>
+</div>
+<div class="w-full h-2.5 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 32%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2 border-t border-gray-100 pt-4">
+<button class="bg-[#f59e0b] text-white font-label-md text-label-md py-3 rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95">Donate Now</button>
+<button class="border-2 border-[#1a6b4a] text-[#1a6b4a] font-label-md text-label-md py-3 rounded-lg hover:bg-emerald-50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">share</span> Share
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Laravel-style Pagination -->
+<div class="mt-16 flex flex-col sm:flex-row items-center justify-between border-t border-gray-200 pt-8 gap-4">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Showing <span class="font-semibold text-on-background">1</span> to <span class="font-semibold text-on-background">6</span> of <span class="font-semibold text-on-background">24</span> results</p>
+<nav class="flex items-center gap-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-outline hover:bg-gray-50 transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-container text-white font-label-md text-label-md shadow-sm">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-background font-label-md text-label-md hover:bg-gray-50 transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-background font-label-md text-label-md hover:bg-gray-50 transition-colors">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-background font-label-md text-label-md hover:bg-gray-50 transition-colors">4</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-outline hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</nav>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-50 border-t border-gray-200 mt-auto">
+<div class="flex flex-col items-center py-12 px-6 gap-6 text-center max-w-7xl mx-auto">
+<div class="text-lg font-bold text-gray-900">CharityHub</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-2">
+<a class="font-['Public_Sans'] text-xs text-gray-500 hover:text-gray-900 transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Public_Sans'] text-xs text-gray-500 hover:text-gray-900 transition-colors" href="#">Terms of Service</a>
+<a class="font-['Public_Sans'] text-xs text-gray-500 hover:text-gray-900 transition-colors" href="#">Financial Statements</a>
+<a class="font-['Public_Sans'] text-xs text-gray-500 hover:text-gray-900 transition-colors" href="#">Contact Support</a>
+</div>
+<p class="font-['Public_Sans'] text-xs text-gray-500 max-w-md">© 2024 CharityHub. Registered Charity #123456789. All donations are tax-deductible.</p>
+</div>
+</footer>
+</body></html>
