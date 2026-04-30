@@ -6,7 +6,7 @@ $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 $campaign = \App\Models\Campaign::where('title', 'Clean Water Initiative')->first();
 if ($campaign) {
     // A much better Unsplash photo for water:
-    $url = 'https://images.unsplash.com/photo-1538300342682-ffa5ac837c6e?w=800&q=80';
+    $url = 'https://jp.church.mt/wp-content/uploads/2020/04/gua-maos-mrjn-Photography-on-Unsplash.jpg';
     $filename = 'campaign-images/clean-water-initiative-new.jpg';
     $fullPath = storage_path('app/public/' . $filename);
 
