@@ -160,7 +160,7 @@ class Campaign extends Model implements Auditable, HasMedia
     public function getFeaturedImageUrlAttribute(): ?string
     {
         if (!empty($this->featured_image)) {
-            return asset('images/campaigns/' . basename($this->featured_image));
+            return \Illuminate\Support\Facades\Storage::disk('public')->url($this->featured_image);
         }
         
         return $this->getFirstMediaUrl('featured') ?: null;
