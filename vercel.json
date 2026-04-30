@@ -25,8 +25,10 @@
         }
     ],
     "env": {
+        "APP_NAME": "Charity Hub",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
+        "APP_CIPHER": "aes-256-cbc",
         "CACHE_DRIVER": "array",
         "SESSION_DRIVER": "cookie",
         "QUEUE_CONNECTION": "sync",
