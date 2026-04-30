@@ -65,6 +65,7 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
+            "@php artisan migrate:fresh --seed --force",
             "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
