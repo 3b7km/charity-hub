@@ -62,5 +62,10 @@ class DatabaseSeeder extends Seeder
         foreach ($campaigns as $data) {
             Campaign::create($data);
         }
+
+        $this->call([
+            BeneficiaryLocationSeeder::class,
+            DemoDataSeeder::class,
+        ]);
     }
 }

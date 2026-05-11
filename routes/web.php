@@ -59,3 +59,9 @@ Route::get('/verify/certificate/{donation}', [\App\Http\Controllers\CertificateC
 Route::post('/webhooks/stripe', [WebhookController::class, 'handleStripe'])
     ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
     ->name('webhooks.stripe');
+
+Route::get('/botman/chat', function () {
+    return view('botman.chat');
+});
+
+Route::post('/botman', [\App\Http\Controllers\BotManController::class, 'handle']);

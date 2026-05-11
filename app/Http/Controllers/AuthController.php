@@ -57,7 +57,8 @@ class AuthController extends Controller
             'password' => \Illuminate\Support\Facades\Hash::make($request->password),
         ]);
 
-        // Assign default donor role
+        // Ensure the donor role exists before assigning
+        \Spatie\Permission\Models\Role::firstOrCreate(['name' => 'donor', 'guard_name' => 'web']);
         $user->assignRole('donor');
 
         Auth::login($user);

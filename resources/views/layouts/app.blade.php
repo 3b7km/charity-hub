@@ -299,5 +299,44 @@
         updateClock();
     </script>
     @stack('scripts')
+
+    <!-- Custom Chat Trigger Button (Bottom Left) -->
+    <button type="button" 
+            onclick="if(window.botmanChatWidget){ window.botmanChatWidget.open(); } else { window.dispatchEvent(new Event('load')); setTimeout(() => { if(window.botmanChatWidget) window.botmanChatWidget.open(); else alert('Unable to load chat.'); }, 500); }" 
+            class="fixed bottom-6 left-6 z-[10000] flex items-center gap-4 hover:scale-105 active:scale-95 transition-all cursor-pointer">
+        <!-- Circular Icon with White Border -->
+        <div class="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center bg-[#1a6b4a] shadow-lg">
+            <span class="material-symbols-outlined text-white text-3xl">forum</span>
+        </div>
+        <!-- White Pill with Text -->
+        <div class="bg-white px-6 py-3 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+            <span class="text-[#1a6b4a] font-bold text-sm tracking-wider uppercase">CHAT ASSISTANT</span>
+        </div>
+    </button>
+
+    <!-- BotMan Widget Configuration -->
+    <style>
+        /* Hide the default BotMan floating button so we only see our custom one */
+        .desktop-closed-message-avatar { display: none !important; }
+    </style>
+    <script>
+        var botmanWidget = {
+            aboutText: 'CharityHub Assistant',
+            introMessage: "Hello! I'm your CharityHub assistant. How can I help you today? 👋",
+            title: 'CharityHub Support',
+            mainColor: '#1a6b4a',
+            bubbleBackground: '#1a6b4a',
+            frameEndpoint: '/botman/chat'
+        };
+    </script>
+    <script id="botmanWidget" src="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js"></script>
+    <script>
+        // Force initialization for Livewire navigations
+        document.addEventListener("livewire:navigated", function() {
+            if (!window.botmanChatWidget) {
+                window.dispatchEvent(new Event('load'));
+            }
+        });
+    </script>
 </body>
 </html>

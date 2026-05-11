@@ -16,6 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\CspMiddleware::class,
         ]);
 
+        $middleware->validateCsrfTokens(except: [
+            'botman',
+        ]);
+
         $middleware->redirectTo(
             guests: '/login',
             users: '/dashboard'
