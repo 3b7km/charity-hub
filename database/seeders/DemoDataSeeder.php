@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DemoDataSeeder extends Seeder
 {
@@ -60,6 +61,13 @@ class DemoDataSeeder extends Seeder
                     'amount' => $amount,
                     'balance_after' => $amount, // Simplified for demo
                     'notes' => 'Donation via Stripe',
+                ]);
+
+                // Create Certificate for confirmed donation
+                \App\Models\Certificate::create([
+                    'donation_id' => $donation->id,
+                    'certificate_number' => 'CERT-' . strtoupper(Str::random(10)),
+                    'issued_at' => now(),
                 ]);
             }
         }

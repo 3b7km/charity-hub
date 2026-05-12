@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Volunteer;
 use App\Models\VolunteerSchedule;
 use App\Models\BeneficiaryLocation;
+use App\Models\CharitySubscription;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
@@ -188,6 +189,23 @@ class DatabaseSeeder extends Seeder
                 'longitude' => 31.7500,
                 'beneficiary_count' => rand(50, 200),
             ]);
+        }
+
+        // 6. Create Charity Subscriptions
+        $plans = ['monthly', 'quarterly', 'annually'];
+        foreach ($volunteerUsers as $donor) {
+            foreach (array_slice($createdCampaigns, 0, 2) as $campaign) {
+                $plan = $plans[array_rand($plans)];
+                CharitySubscription::create([
+                    'donor_id' => $donor->id,
+                    'campaign_id' => $campaign->id,
+                    'stripe_subscription_id' => 'sub_demo_' . Str::random(14),
+                    'stripe_customer_id' => 'cus_demo_' . Str::random(14),
+                    'plan' => $plan,
+                    'status' => 'active',
+                    'current_period_end' => now()->addDays($plan === 'monthly' ? 30 : ($plan === 'quarterly' ? 90 : 365)),
+                ]);
+            }
         }
 
         $this->call([
